@@ -34,3 +34,8 @@ Route::get('/contest-view/{contest}', 'AdminController@viewContest');
 
 Route::get('/c/{contest}/problem-add', 'AdminController@addProblem');
 Route::post('/c/{contest}/problem-add', 'AdminController@postAddProblem');
+
+Route::get('/c/{contest}/p/{problem}/problem-edit', 'AdminController@editProblem');
+Route::patch('/c/{contest}/p/{problem}/problem-edit', 'AdminController@updateProblem');
+
+Route::delete('/c/{contest}/p/{problem}/problem-delete', 'AdminController@deleteProblem');

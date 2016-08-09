@@ -9,7 +9,7 @@
             <div class="panel-heading">
                 {{ $contest->title." - Problem List" }}
                 <span class="pull-right">
-                    <a href="{{ url('/c/' . $contest->id . '/problem-add')  }}" class="btn btn-xs btn-info">Add Problem</a>
+                    <a href="{{ url('#')  }}" class="btn btn-xs btn-info">Add Problem</a>
                 </span>
             </div>
             <div class="">
@@ -19,12 +19,20 @@
                             <i class="fa fa-file fa-lg"></i>
                             {{ $problem->title }}
                             <span class="pull-right">
-                        <button onclick="callRoute()" class="btn btn-xs btn-info">Edit</button>
-                    </span>
+                                <button onclick="editProblem({{$contest->id.','.$problem->id}})"
+                                        class="btn btn-xs btn-info">Edit</button>
+                                <button onclick="deleteProblem({{$contest->id.','.$problem->id}})"
+                                        class="btn btn-xs btn-danger">Delete</button>
+                            </span>
                             {{--js  for onclick--}}
                             <script>
-                                function callRoute() {
-                                    window.location="{{URL::to('/problems/' . $problem->id . '/edit')}}";
+                                function editProblem(contest_id, problem_id) {
+                                    //alert(problem_id + " " +contest_id);
+                                    window.location='/c/' + contest_id + '/p/' + problem_id + '/problem-edit';
+                                }
+
+                                function deleteProblem(contest_id, problem_id) {
+                                    window.location='/c/' + contest_id + '/p/' + problem_id + '/probem-delete';
                                 }
                             </script>
                         </a>

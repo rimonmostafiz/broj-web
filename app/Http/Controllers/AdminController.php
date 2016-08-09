@@ -77,20 +77,28 @@ class AdminController extends Controller
         return redirect()->to('/somewhere');
         return redirect('/somewhere');*/
         //return back();
-        return Redirect::to('contest-view/'.$contest->id)->with('contest');
+        return Redirect::to('/contest-view/'.$contest->id)->with('contest');
     }
 
     //Problem $problem is full problem object for route model binding
-    public function editProblem(Problem $problem)
+    public function editProblem(Contest $contest, Problem $problem)
     {
-        return view('admin.problem-edit', compact('problem'));
+        return view('admin.problem-edit', compact('contest', 'problem'));
     }
 
-    public function updateProblem(Request $request, Problem $problem)
+    public function updateProblem(Request $request, Contest $contest, Problem $problem)
     {
 
+        //dd($problem);
         //TODO : validation
         $problem->update($request->all());
-        return back();
+        return Redirect::to('/contest-view/'.$contest->id)->with('contest');
     }
+
+    public function deleteProblem(Contest $contest, Problem $problem)
+    {
+
+    }
+
+
 }
