@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - broj_db@localhost" uuid="f450737b-e3b3-440b-aa97-b794221be7db">
+    <database-info product="MySQL" version="5.5.5-10.1.13-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+      <schema id="1" name="broj_db">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="information_schema"/>
+      <schema id="3" name="mysql"/>
+      <schema id="4" name="performance_schema"/>
+      <schema id="5" name="phpmyadmin"/>
+      <schema id="6" name="test"/>
+    </database-model>
+  </data-source>
+</component>
