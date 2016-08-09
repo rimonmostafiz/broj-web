@@ -4,13 +4,13 @@
     @include('admin.temp.sidebar')
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">Contest List</div>
                 <div class="">
                     @foreach($contests as $contest)
                         <div>
-                            <a href="/admin-contests/{{ $contest->id }}" class="list-group-item">
+                            <a href="{{ url('/contest-view/'.$contest->id) }}" class="list-group-item">
                                 <h4 class="list-group-item-heading">{{ $contest->title }}</h4>
                                 <span class="label label-default pull-right label-success"> Running...</span>
                                 <p class="list-group-item-text"> {{ $contest->author }}</p>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contest;
+use App\Problem;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -50,15 +51,20 @@ class AdminController extends Controller
         return view('admin.contest-list', compact('contests'));
     }
 
-    public function showContest($id)
+    public function viewContest(Contest $contest)
     {
-
-        $contest = Contest::find($id);
-        return view('admin.admin-contests-details', compact('contest'));
+        return view('admin.contest-view', compact('contest'));
     }
 
-    public function addProblem(Request $request, Contest $contest)
+    public function addProblem(Contest $contest)
     {
+        //dd($contest->id);
+        //$contest = Contest::find($contest_id);
+        return view('admin.problem-add', compact('contest'));
+    }
+
+    public function postAddProblem(Request $request, Contest $contest)
+    {   //dd("Here");
         $problem = new Problem();
 
         $problem->title = $request['title'];
@@ -70,7 +76,8 @@ class AdminController extends Controller
         /*return Redirect::to('/some/new/url');
         return redirect()->to('/somewhere');
         return redirect('/somewhere');*/
-        return back();
+        //return back();
+        return Redirect::to('contest-view/'.$contest->id)->with('contest');
     }
 
     //Problem $problem is full problem object for route model binding
