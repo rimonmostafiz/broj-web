@@ -44,3 +44,6 @@ Route::delete('/c/{contest}/p/{problem}/problem-delete', 'AdminController@delete
 // App Route
 Route::get('/contests', 'AppController@showContestList');
 Route::get('/contests/{contest}', 'AppController@viewContest');
+Route::get('/c/{contest}/p/{problem}', 'AppController@viewProblem');
+
+Route::post('/c/{contest}/submit/{problem}', 'AppController@submitProblem');
