@@ -19,6 +19,7 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+// Admin Related Route
 Route::get('/manage', 'AdminController@login');
 Route::post('/manage', 'AdminController@postLogin');
 
@@ -39,3 +40,7 @@ Route::get('/c/{contest}/p/{problem}/problem-edit', 'AdminController@editProblem
 Route::patch('/c/{contest}/p/{problem}/problem-edit', 'AdminController@updateProblem');
 
 Route::delete('/c/{contest}/p/{problem}/problem-delete', 'AdminController@deleteProblem');
+
+// App Route
+Route::get('/contests', 'AppController@showContestList');
+Route::get('/contests/{contest}', 'AppController@viewContest');

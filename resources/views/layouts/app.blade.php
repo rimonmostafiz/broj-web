@@ -7,6 +7,15 @@
 
     <title>broj @yield('title')</title>
 
+    <!-- CSS Custom -->
+    <link rel="stylesheet" href="{{ url('css/vendor/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url('css/font-awesome.min.css') }}">
+    <link rel="script" href="{{ url('js/vendor/bootstrap.js') }}">
+    <link rel="script" href="{{ url('js/vendor/jquery.js') }}">
+
+    <link rel="stylesheet" href="{{ url('css/styles.css') }}">
+
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
@@ -48,7 +57,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="#">Contests</a></li>
+                    <li><a href=" {{ url('/contests') }}">Contests</a></li>
                     <li><a href="#">Submission</a></li>
                 </ul>
 
