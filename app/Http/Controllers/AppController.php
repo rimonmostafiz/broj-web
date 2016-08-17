@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Contest;
 use App\Problem;
+use App\Submission;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\File;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use MongoDB\BSON\UTCDatetime;
+use PhpParser\Node\Scalar\String_;
 
 class AppController extends Controller
 {
@@ -30,8 +36,32 @@ class AppController extends Controller
     public function submitProblem(Request $request, Contest $contest, Problem $problem) {
         if($request->hasFile('source')) {
             $file = $request->file('source');
-            $file->move('uploads', $file->getClientOriginalName());
-            echo 'File Uploaded';
+            $language = $request['language'];
+            $data = file_get_contents($request->file('source')->getRealPath());
+            //dd($file, $language, $data);
+            //$file->move('uploads', 'A.cpp');
+
+            /*$res = exec('g++ uploads/A.cpp -o uploads/A');
+            echo $res;*/
+            /*$string = $file->getFilename();
+            $size = $file->getSize();
+            $mime = $file->getClientMimeType();
+            $type = $file->getClientOriginalExtension();
+            $name = $file->getExtension();
+            $time = $file->getCTime();
+            $time += 3600 * 6;
+            $type += $file->getType();
+            dd($string, $size, $mime, $type, $name, $time, $type, $language);*/
+
+            $submission = new Submission();
+            $submission->language = $language;
+            $submission->source = $data;
+            $submission->problem_id = $problem->id;
+            $submission->contest_id = $contest->id;
+
+            $submission->save();
+
+            return back();
         }
     }
 }

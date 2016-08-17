@@ -11,6 +11,10 @@ class Contest extends Model
         return $this->hasMany(Problem::class);
     }
 
+    public function submissions() {
+        return $this->hasMany(Submission::class);
+    }
+
     public function path() {
         return '/contests/'.$this->title;
     }

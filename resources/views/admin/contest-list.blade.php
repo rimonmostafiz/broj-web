@@ -10,7 +10,7 @@
                 <div class="">
                     @foreach($contests as $contest)
                         <div>
-                            <a href="{{ url('/contests/'.$contest->id) }}" class="list-group-item">
+                            <a href="{{ url('/contest-view/'.$contest->id) }}" class="list-group-item">
                                 <div class="pull-left">
                                     <i class="fa fa-folder fa-lg"></i>
                                 </div>

@@ -122,10 +122,10 @@
                         <form role="form" action="{{ url('/c/'.$contest->id.'/submit/'.$problem->id) }}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <select name="languageId" class="form-control">
-                                    <option value="">C</option>
-                                    <option value="">C++</option>
-                                    <option value="">Java</option>
+                                <select name="language" class="form-control">
+                                    <option value="c">C</option>
+                                    <option value="c++">C++</option>
+                                    <option value="java">Java</option>
                                 </select>
                             </div>
                             <div class="form-group">
