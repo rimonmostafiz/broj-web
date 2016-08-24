@@ -27,6 +27,11 @@ elixir(function(mix) {
 
     mix.copy('resources/assets/css/styles.css', 'public/css/styles.css');
     mix.copy('resources/assets/js/custom.js', 'public/js/custom.js');
+
+    mix.copy('resources/assets/js/jquery-d.js', 'public/js/jquery-d.js');
+    mix.copy('resources/assets/js/jquery.datetimepicker.js', 'public/js/jquery.datetimepicker.js');
+    mix.copy('resources/assets/css/jquery.datetimepicker.css', 'public/css/jquery.datetimepicker.css');
+
 });
 
 elixir(function(mix) {

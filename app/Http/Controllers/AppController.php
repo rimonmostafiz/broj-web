@@ -26,15 +26,18 @@ class AppController extends Controller
 
     public function viewContest(Contest $contest)
     {
+
         return view('app.contest-display', compact('contest'));
     }
 
-    public function viewProblem(Contest $contest, Problem $problem) {
+    public function viewProblem(Contest $contest, Problem $problem)
+    {
         return view('app.problem-display', compact('contest', 'problem'));
     }
 
-    public function submitProblem(Request $request, Contest $contest, Problem $problem) {
-        if($request->hasFile('source')) {
+    public function submitProblem(Request $request, Contest $contest, Problem $problem)
+    {
+        if ($request->hasFile('source')) {
             $file = $request->file('source');
             $language = $request['language'];
             $data = file_get_contents($request->file('source')->getRealPath());

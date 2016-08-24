@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Submission extends Model
 {
     //
+    protected $primaryKey = 'submission_id';
     public function contest() {
 
         return $this->belongsTo(Contest::class);

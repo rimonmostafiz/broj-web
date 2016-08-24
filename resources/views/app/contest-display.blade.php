@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-md-7 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">{{ $contest->title." - Problem List" }}</div>
+                <div class="panel-heading">{{ $contest->contest_name." - Problem List" }}</div>
                 <div class="">
                     @foreach($contest->problems as $problem)
                         <div class="">
-                            <a href="{{ url('/c/'.$contest->id.'/p/'.$problem->id) }}" class="list-group-item clearfix">
+                            <a href="{{ url('/c/'.$contest->contest_id.'/p/'.$problem->problem_id) }}" class="list-group-item clearfix">
                                 <i class="fa fa-file-o fa-lg"></i>
-                                {{ $problem->title }}
+                                {{ $problem->problem_name }}
                             </a>
                         </div>
                     @endforeach
@@ -46,7 +46,7 @@
             <div id="side">
                 <div class="panel panel-default panel-contest-timer">
                     <div class="panel-heading text-center">
-                        {{ $contest->title }}
+                        {{ $contest->contest_name }}
                     </div>
                     <div class="panel-body small">
                         <div class="text-center">

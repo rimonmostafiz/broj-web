@@ -10,14 +10,14 @@
                 <div class="">
                     @foreach($contests as $contest)
                         <div>
-                            <a href="{{ url('/contest-view/'.$contest->id) }}" class="list-group-item">
+                            <a href="{{ url('/contest-view/'.$contest->contest_id) }}" class="list-group-item">
                                 <div class="pull-left">
                                     <i class="fa fa-folder fa-lg"></i>
                                 </div>
                                 <div class>
-                                    <h4 class="list-group-item-heading">{{ $contest->title }}</h4>
+                                    <h4 class="list-group-item-heading">{{ $contest->contest_name }}</h4>
                                     <span class="label label-default pull-right label-success"> Running...</span>
-                                    <p class="list-group-item-text"> {{ $contest->author }}</p>
+                                    <p class="list-group-item-text"> {{ $contest->contest_author }}</p>
                                 </div>
                             </a>
                         </div>

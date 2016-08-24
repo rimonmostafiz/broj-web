@@ -11,32 +11,82 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/contest-add') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                                <label for="title" class="col-md-4 control-label">Contest Title</label>
+                            <!--Contest Title-->
+                            <div class="form-group{{ $errors->has('contest_name') ? ' has-error' : '' }}">
+                                <label for="contest_name" class="col-md-4 control-label">Contest Title</label>
 
                                 <div class="col-md-6">
-                                    <input id="title" type="name" class="form-control"
-                                           name="title" value="{{ old('title') }}">
+                                    <input id="contest_name" type="name" class="form-control"
+                                           name="contest_name" value="{{ old('contest_name') }}">
 
-                                    @if ($errors->has('title'))
+                                    @if ($errors->has('contest_name'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('title') }}</strong>
+                                        <strong>{{ $errors->first('contest_name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('author') ? ' has-error' : '' }}">
-                                <label for="author" class="col-md-4 control-label">Contest Author</label>
+                            <!--Contest Author-->
+                            <div class="form-group{{ $errors->has('contest_author') ? ' has-error' : '' }}">
+                                <label for="contest_author" class="col-md-4 control-label">Contest Author</label>
 
                                 <div class="col-md-6">
-                                    <input id="author" type="name" class="form-control"
-                                           name="author" value="{{ old('author') }}">
+                                    <input id="contest_author" type="name" class="form-control"
+                                           name="contest_author" value="{{ old('contest_author') }}">
 
-                                    @if ($errors->has('author'))
+                                    @if ($errors->has('contest_author'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('author') }}</strong>
+                                        <strong>{{ $errors->first('contest_author') }}</strong>
                                     </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <!--Start Time-->
+                            <div class="form-group{{ $errors->has('start_time') ? ' has-error' : '' }}">
+                                <label for="start_time" class="col-md-4 control-label">Start Time</label>
+
+                                <div class="col-md-6">
+                                    <input id="start_time" type="datetime" class="form-control"
+                                           name="start_time" value="{{ old('start_time') }}">
+
+                                    @if ($errors->has('start_time'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('start_time') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <!--End Time-->
+                            <div class="form-group{{ $errors->has('end_time') ? ' has-error' : '' }}">
+                                <label for="end_time" class="col-md-4 control-label">End Time</label>
+
+                                <div class="col-md-6">
+                                    <input id="end_time" type="name" class="form-control"
+                                           name="end_time" value="{{ old('end_time') }}">
+
+                                    @if ($errors->has('end_time'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('end_time') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                                
+                            <!--Duration-->
+                            <div class="form-group{{ $errors->has('duration') ? ' has-error' : '' }}">
+                                <label for="duration" class="col-md-4 control-label">Contest Duration</label>
+
+                                <div class="col-md-6">
+                                    <input id="duration" type="name" class="form-control"
+                                           name="duration" value="{{ old('duration') }}">
+
+                                    @if ($errors->has('duration'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('duration') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>

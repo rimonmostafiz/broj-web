@@ -13,11 +13,15 @@ class CreateContestsTable extends Migration
     public function up()
     {
         Schema::create('contests', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->string('title');
-            $table->string('author');
+            $table->bigIncrements('contest_id')->unsigned();
 
+            $table->string('contest_name');
+            $table->string('contest_author');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->bigInteger('duration');
+
+            $table->timestamps();
             $table->rememberToken();
         });
     }

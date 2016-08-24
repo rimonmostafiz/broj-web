@@ -7,35 +7,35 @@
     <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                {{ $contest->title." - Problem List" }}
+                {{ $contest->contest_name." - Problem List" }}
                 <span class="pull-right">
-                    <a href="{{ url('#')  }}" class="btn btn-xs btn-info">Add Problem</a>
+                    <a href="{{ url('/c/'.$contest->contest_id.'/problem-add')  }}" class="btn btn-xs btn-info">Add Problem</a>
                 </span>
             </div>
             <div class="">
                 @foreach($contest->problems as $problem)
                     <div class="">
-                        <a href="#" class="list-group-item clearfix">
+                        <a href="{{ url('/c/'.$contest->contest_id.'/p/'.$problem->problem_id) }}" class="list-group-item clearfix">
                             <i class="fa fa-file fa-lg"></i>
-                            {{ $problem->title }}
-                            <span class="pull-right">
-                                <button onclick="editProblem({{$contest->id.','.$problem->id}})"
-                                        class="btn btn-xs btn-info">Edit</button>
-                                <button onclick="deleteProblem({{$contest->id.','.$problem->id}})"
-                                        class="btn btn-xs btn-danger">Delete</button>
-                            </span>
-                            {{--js  for onclick--}}
-                            <script>
-                                function editProblem(contest_id, problem_id) {
-                                    //alert(problem_id + " " +contest_id);
-                                    window.location='/c/' + contest_id + '/p/' + problem_id + '/problem-edit';
-                                }
-
-                                function deleteProblem(contest_id, problem_id) {
-                                    window.location='/c/' + contest_id + '/p/' + problem_id + '/probem-delete';
-                                }
-                            </script>
+                            {{ $problem->problem_name }}
                         </a>
+                        <span class="pull-right">
+                            <button style="position: relative; top: -30px; left: -7px" id="edit-btn" onclick="editProblem({{$contest->contest_id.','.$problem->problem_id}})"
+                                    class="btn btn-xs btn-info">Edit</button>
+                            <button style="position: relative; top: -30px; left: -5px" id="delete-btn" onclick="deleteProblem({{$contest->contest_id.','.$problem->problem_id}})"
+                                    class="btn btn-xs btn-danger">Delete</button>
+                        </span>
+                        {{--js  for onclick--}}
+                        <script>
+                            function editProblem(contest_id, problem_id) {
+                                //alert(problem_id + " " +contest_id);
+                                window.location = '/c/' + contest_id + '/p/' + problem_id + '/problem-edit';
+                            }
+
+                            function deleteProblem(contest_id, problem_id) {
+                                window.location = '/c/' + contest_id + '/p/' + problem_id + '/problem-delete';
+                            }
+                        </script>
                     </div>
                 @endforeach
             </div>

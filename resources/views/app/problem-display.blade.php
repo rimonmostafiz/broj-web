@@ -7,18 +7,23 @@
         <div class="col-md-7 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ $problem->title }}
+                    {{ $problem->problem_name }}
                     <span class="pull-right">
-                        <p style="width: 120px" class="btn btn-xs btn-warning">Score: 100</p>
-                        <p style="width: 120px" class="btn btn-xs btn-warning">CPU: 0.5s</p>
-                        <p style="width: 120px" class="btn btn-xs btn-warning">Memory: 512MB</p>
+                        <p style="width: 120px" class="btn btn-xs btn-warning">Score: {{$problem->score}}</p>
+                        <p style="width: 120px" class="btn btn-xs btn-warning">CPU: {{$problem->time_limit}}s</p>
+                        <p style="width: 120px" class="btn btn-xs btn-warning">Memory: {{$problem->memory_limit}}MB</p>
                     </span>
                 </div>
                 <div class="panel-body">
                     <div class="description">
-                        <p>Given an undirected graph find all of its articulation points.</p>
+                        <?php
+                            $statement = $problem->statement;
+                            $statement = nl2br($statement);
+                        ?>
+                        {!! $statement !!}
                     </div>
 
+                    <!--
                     <div class="specs">
 
                         <div class="spec">
@@ -43,6 +48,7 @@
                         </div>
 
                     </div>
+                    -->
 
                     <table class="table table-sample">
                         <thead>
@@ -54,27 +60,18 @@
                         <tbody>
                         <tr>
                             <td class="sample-input">
-                                6
-                                <br>
-                                5
-                                <br>
-                                1 3
-                                <br>
-                                1 2
-                                <br>
-                                0 1
-                                <br>
-                                3 4
-                                <br>
-                                2 5
-                                <br>
+                                <?php
+                                    $sample_input = $problem->sample_input;
+                                    $sample_input = nl2br($sample_input);
+                                ?>
+                                {!! $sample_input !!}
                             </td>
                             <td class="sample-output">
-                                1
-                                <br>
-                                2
-                                <br>
-                                3
+                                <?php
+                                    $sample_output = $problem->sample_output;
+                                    $sample_output = nl2br($sample_output);
+                                ?>
+                                {!! $sample_output !!}
                             </td>
                         </tr>
                         </tbody>
@@ -89,7 +86,7 @@
                 <div id="side-1">
                     <div class="panel panel-default panel-contest-timer">
                         <div class="panel-heading text-center">
-                            {{ $contest->title }}
+                            {{ $contest->contest_name }}
                         </div>
                         <div class="panel-body small">
                             <div class="text-center">
@@ -119,7 +116,7 @@
                         <span> Submission </span>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="{{ url('/c/'.$contest->id.'/submit/'.$problem->id) }}" method="POST" enctype="multipart/form-data">
+                        <form role="form" action="{{ url('/c/'.$contest->contest_id.'/submit/'.$problem->problem_id) }}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <select name="language" class="form-control">
