@@ -20,8 +20,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 // Admin Related Route
-Route::get('/manage', 'AdminController@login');
-Route::post('/manage', 'AdminController@postLogin');
+Route::get('/manage', 'AdminController@showAdminPanel');
+/*Route::post('/manage', 'AdminController@postLogin');*/
 
 Route::get('/dashboard', function (){
     return view('admin.dashboard');

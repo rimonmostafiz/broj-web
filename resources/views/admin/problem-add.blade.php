@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    @include('admin.temp.sidebar')
+{{--    @include('admin.temp.sidebar')--}}
 
     <!--Add Problem Form-->
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Add Problem</div>
                 <div class="panel-body">

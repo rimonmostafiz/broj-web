@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 
 @section('content')
-    @include('admin.temp.sidebar')
+    {{--@include('admin.temp.sidebar')--}}
 @endsection

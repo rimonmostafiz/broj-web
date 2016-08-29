@@ -48,61 +48,57 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/manage') }}">
-                broj | admin
+            <a class="navbar-brand" href="{{ url('/') }}">
+                broj
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                {{--
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="#">Contests</a></li>
-                    <li><a href="#">Submission</a></li>
-                --}}
+                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Contest <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/contest-list') }}">Contest List</a></li>
+                        <li><a href="{{ url('/contest-add') }}">Add Contest</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Submission</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-
-                {{--@if (Auth::guest())
-                    <li><a href="{{ url('/manage') }}">Login</a></li>
+                @if (Auth::guest())
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::admin()->username }} <span class="caret"></span>
+                            {{ Auth::user()->username }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            --}}{{--TODO: Edit Profile Add --}}{{--
+                            TODO: Edit Profile Add
                             <li><a href="#"><i class="fa fa-btn fa-user"></i>Profile</a></li>
-                            <li><a href="{{ url('/admin-logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
-                @endif--}}
+                @endif
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="container">
-    <div class="row">
-        @yield('content')
-    </div>
-</div>
+@yield('content')
+
 <!-- JavaScripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-
-
-<!-- JavaScripts Custom -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{{ url('js/vendor/bootstrap.min.js') }}"></script>
-<script src="{{ url('js/custom.js') }}"></script>
 </body>
 </html>

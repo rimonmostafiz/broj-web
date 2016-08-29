@@ -21,9 +21,9 @@ class CreateSubmissionsTable extends Migration
             $table->bigInteger('problem_id')->unsigned();
             $table->string('language');
             $table->binary('source_code');
-            $table->string('status');
+            $table->boolean('status');
 
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('users');
             $table->foreign('contest_id')->references('contest_id')->on('contests');
             $table->foreign('problem_id')->references('problem_id')->on('problems');
 

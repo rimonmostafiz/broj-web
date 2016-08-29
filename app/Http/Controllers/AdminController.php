@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Contest;
 use App\Problem;
+use App\User;
 use Illuminate\Http\Request;
+use Auth;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Input;
@@ -19,18 +20,15 @@ use PhpParser\Node\Scalar\String_;
 class AdminController extends Controller
 {
 
-    public function login()
+    /*public function login()
     {
         return view('admin.login');
-    }
+    }*/
 
-    public function postLogin(Request $request)
+    public function showAdminPanel(Request $request)
     {
-
-        $username = $request['username'];
-        $password = $request['password'];
-
-        if ($username == "admin" && $password == "admin") {
+        $user = Auth::user();
+        if ($user->role == "ADMIN") {
             return response()->view('admin.dashboard');
         }
         return redirect()->back();

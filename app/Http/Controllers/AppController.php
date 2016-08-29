@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Contest;
 use App\Problem;
 use App\Submission;
+use App\User;
+use Illuminate\Contracts\Auth;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\File;
 
 use App\Http\Requests;
@@ -57,11 +58,11 @@ class AppController extends Controller
             dd($string, $size, $mime, $type, $name, $time, $type, $language);*/
 
             $submission = new Submission();
+            $submission->user_id = 1;
+            $submission->problem_id = $problem->problem_id;
+            $submission->contest_id = $contest->contest_id;
             $submission->language = $language;
-            $submission->source = $data;
-            $submission->problem_id = $problem->id;
-            $submission->contest_id = $contest->id;
-
+            $submission->source_code = $data;
             $submission->save();
 
             return back();

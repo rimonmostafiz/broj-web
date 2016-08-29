@@ -121,7 +121,7 @@
                             <div class="form-group">
                                 <select name="language" class="form-control">
                                     <option value="c">C</option>
-                                    <option value="c++">C++</option>
+                                    <option value="cpp">C++</option>
                                     <option value="java">Java</option>
                                 </select>
                             </div>

@@ -1,20 +1,20 @@
 @extends('layouts.admin')
 
 @section('content')
-    @include('admin.temp.sidebar')
+    {{--@include('admin.temp.sidebar')--}}
 
     <!--Add Problem Form-->
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Problem - {{ $problem->probelm_name }}</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data"
                           action="{{ url('/c/'.$contest->contest_id.'/p/'.$problem->problem_id.'/problem-edit') }}">
-                        {{ method_field('PUT') }} {{-- csustom method field --}}
-                        {{ csrf_field() }}
+                    {{ method_field('PUT') }} {{-- csustom method field --}}
+                    {{ csrf_field() }}
 
-                        <!-- Problem Name -->
+                    <!-- Problem Name -->
                         <div class="form-group{{ $errors->has('problem_name') ? ' has-error' : '' }}">
                             <label for="problem_name" class="col-md-4 control-label">Problem Title</label>
 

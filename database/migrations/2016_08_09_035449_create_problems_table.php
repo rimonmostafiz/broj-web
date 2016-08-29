@@ -24,9 +24,11 @@ class CreateProblemsTable extends Migration
             $table->longText('sample_output');
             $table->binary('judge_input');
             $table->binary('judge_output');
-            $table->decimal('time_limit');
-            $table->decimal('memory_limit');
+            $table->bigInteger('time_limit');
+            $table->bigInteger('memory_limit');
             $table->integer('score');
+
+            $table->foreign('contest_id')->references('contest_id')->on('contests');
 
             $table->timestamps();
             $table->rememberToken();
