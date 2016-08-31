@@ -65,19 +65,22 @@
                                 @if($container->getVerdict() == null)
                                     <div class="label label-default"> {{ "Processing" }}</div>
 
-                                @elseif($container->getVerdict()->result == "ACCEPTED")
+                                @elseif($container->getVerdict()->result == 'ACCEPTED')
                                     <div class="label label-success"> {{ "Accepted" }}</div>
 
-                                @elseif($container->getVerdict()->result == "TIME_LIMIT_EXIT")
+                                @elseif($container->getVerdict()->result == 'WRONG')
+                                    <div class="label label-danger"> {{ "Wrong Answer" }} </div>
+
+                                @elseif($container->getVerdict()->result == 'TIME_LIMIT_EXIT')
                                     <div class="label label-danger"> {{ "Time Limit Exceeded" }} </div>
 
-                                @elseif($container->getVerdict()->result == "MEMORY_LIMIT_EXIT")
+                                @elseif($container->getVerdict()->result == 'MEMORY_LIMIT_EXIT')
                                     <div class="label label-danger"> {{ "Memory Limit Exceeded" }} </div>
 
-                                @elseif($container->getVerdict()->result == "RUN_TIME_ERROR")
+                                @elseif($container->getVerdict()->result == 'RUN_TIME_ERROR')
                                     <div class="label label-danger"> {{ "Run Time Error" }} </div>
 
-                                @elseif($container->getVerdict()->result == "COMPILE_ERROR")
+                                @elseif($container->getVerdict()->result == 'COMPILE_ERROR')
                                     <div class="label label-danger"> {{ "Compilation Error" }} </div>
 
                                 @endif
