@@ -20,12 +20,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 // Admin Related Route
-Route::get('/manage', 'AdminController@showAdminPanel');
+Route::get('/manage', 'AdminController@showAdminDashboard');
 /*Route::post('/manage', 'AdminController@postLogin');*/
-
-Route::get('/dashboard', function (){
-    return view('admin.dashboard');
-});
 
 Route::get('/contest-add', 'AdminController@addContest');
 Route::post('/contest-add', 'AdminController@postAddContest');
@@ -46,3 +42,5 @@ Route::get('/contests/{contest}', 'AppController@viewContest');
 Route::get('/c/{contest}/p/{problem}', 'AppController@viewProblem');
 
 Route::post('/c/{contest}/submit/{problem}', 'AppController@submitProblem');
+
+Route::get('/submissions', 'AppController@showSubmissions');

@@ -25,7 +25,7 @@ class AdminController extends Controller
         return view('admin.login');
     }*/
 
-    public function showAdminPanel(Request $request)
+    public function showAdminDashboard()
     {
         $user = Auth::user();
         if ($user->role == "ADMIN") {
@@ -51,7 +51,7 @@ class AdminController extends Controller
 
         $contest->save();
 
-        return Redirect::to('/dashboard');
+        return Redirect::to('/contest-list');
     }
 
     public function showContestList()

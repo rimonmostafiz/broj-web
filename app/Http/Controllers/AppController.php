@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Container;
 use App\Contest;
 use App\Problem;
 use App\Submission;
 use App\User;
+use App\Verdict;
 use Illuminate\Contracts\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -67,5 +69,23 @@ class AppController extends Controller
 
             return back();
         }
+    }
+
+    public function showSubmissions() {
+
+        $listOfContainer = array();
+        $submissions = Submission::all();
+        $submissions = $submissions->reverse();
+        foreach ($submissions as $submission) {
+            //dd($submission);
+            $user = User::find($submission->user_id);
+            $contest = Contest::find($submission->contest_id);
+            $problem = Problem::find($submission->problem_id);
+            $verdict = Verdict::find($submission->submission_id);
+
+            $container = new Container($user, $contest, $problem, $submission, $verdict);
+            array_push($listOfContainer, $container);
+        }
+        return view('app.submission-display', compact('listOfContainer'));
     }
 }

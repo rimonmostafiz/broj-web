@@ -9,9 +9,9 @@
                 <div class="panel-heading">
                     {{ $problem->problem_name }}
                     <span class="pull-right">
-                        <p style="width: 120px" class="btn btn-xs btn-warning">Score: {{$problem->score}}</p>
-                        <p style="width: 120px" class="btn btn-xs btn-warning">CPU: {{$problem->time_limit}}s</p>
-                        <p style="width: 120px" class="btn btn-xs btn-warning">Memory: {{$problem->memory_limit}}MB</p>
+                        <p style="width: 120px" class="label label-warning">Score: {{$problem->score}}</p>
+                        <p style="width: 120px" class="label label-warning">CPU: {{$problem->time_limit}}s</p>
+                        <p style="width: 120px" class="label label-warning">Memory: {{$problem->memory_limit}}MB</p>
                     </span>
                 </div>
                 <div class="panel-body">

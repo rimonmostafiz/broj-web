@@ -56,7 +56,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url('/manage') }}">Dashboard</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         Contest <span class="caret"></span>
@@ -67,7 +67,7 @@
                         <li><a href="{{ url('/contest-add') }}">Add Contest</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Submission</a></li>
+                <li><a href=" {{ url('/submissions') }}">Submissions</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
